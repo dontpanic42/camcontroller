@@ -57,11 +57,6 @@ namespace camcontrolui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ExecutePlan();
-        }
-
-        private void ExecutePlan()
-        {
             int drop1Delay = decimal.ToInt32(drop1DelayNumeric.Value);
             int drop1Duration = decimal.ToInt32(drop1DurationNumeric.Value);
             int drop2Delay = decimal.ToInt32(drop2DelayNumeric.Value);
@@ -70,23 +65,81 @@ namespace camcontrolui
             int shutterDuration = decimal.ToInt32(shutterDurationNumeric.Value);
             int flashDelay = decimal.ToInt32(flashDelayNumeric.Value);
             int flashDuration = decimal.ToInt32(flashDurationNumeric.Value);
-            
-            portSelector.SelectedPort.Write("dd0" + drop1Delay + "&");
-            portSelector.SelectedPort.Write("du0" + drop1Duration + "&");
-            portSelector.SelectedPort.Write("dd1" + drop2Delay + "&");
-            portSelector.SelectedPort.Write("du1" + drop2Duration + "&");
-            portSelector.SelectedPort.Write("sd0" + shutterDelay + "&");
-            portSelector.SelectedPort.Write("su0" + shutterDuration + "&");
-            portSelector.SelectedPort.Write("fd0" + flashDelay + "&");
-            portSelector.SelectedPort.Write("fu0" + flashDuration + "&");
+
+            PlanEntry[] plan =
+            {
+                new PlanEntry(drop1Delay, drop1Duration, "dd0", "du0"),
+                new PlanEntry(drop2Delay, drop2Duration, "dd1", "du1"),
+                new PlanEntry(shutterDelay, shutterDuration, "sd0", "su0"),
+                new PlanEntry(flashDelay, flashDuration, "fd0", "fu0"),
+            };
+
+            button1.Enabled = false;
+
+            try {
+                int seriesSteps = 1;
+                int seriesOffset = 0;
+                int seriesDelay = 0;
+
+                if (enableFlashSeriesCheckbox.Checked)
+                {
+                    seriesSteps = decimal.ToInt32(flashSeriesNumExecNumeric.Value);
+                    seriesOffset = decimal.ToInt32(flashSeriesOffsetNumeric.Value);
+                    seriesDelay = decimal.ToInt32(flashSeriesDelayNumeric.Value);
+                }
+
+                PlanSeries series = new PlanSeries(seriesSteps, seriesOffset, "fd0");
+
+                while(series.HasNext()) { 
+
+                    ExecutePlan(plan);
+
+                    plan = series.UpdatePlan(plan);
+
+                    Wait(seriesDelay);
+                }
+
+            }
+            finally
+            {
+                button1.Enabled = true;
+            }
+        }
+
+        private void ExecutePlan(PlanEntry[] plan)
+        {
+            foreach(PlanEntry e in plan)
+            {
+                portSelector.SelectedPort.Write(e.delayCommand + e.delay + "&");
+                portSelector.SelectedPort.Write(e.durationCommand + e.duration + "&");
+
+                Console.Out.WriteLine(e.delayCommand + e.delay + "&");
+            }
+
+            Console.Out.WriteLine("---------");
             portSelector.SelectedPort.Write("exe&");
         }
 
         private void MainControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == ' ')
+
+        }
+
+        private void Wait(int milliseconds)
+        {
+            System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Tick += (s, e) =>
             {
-                ExecutePlan();
+                timer1.Enabled = false;
+                timer1.Stop();
+            };
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
             }
         }
     }

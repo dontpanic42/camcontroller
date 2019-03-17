@@ -58,6 +58,8 @@
     <Compile Include="MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlanEntry.cs" />
+    <Compile Include="PlanSeries.cs" />
     <Compile Include="PortSelect.cs">
       <SubType>Form</SubType>
     </Compile>

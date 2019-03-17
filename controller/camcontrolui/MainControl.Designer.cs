@@ -48,12 +48,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.serialMonitorBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.drop2DelayNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.drop2DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
+            this.drop2DurationNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.drop2DelayNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.flashSeriesOffsetNumeric = new System.Windows.Forms.NumericUpDown();
+            this.flashSeriesNumExecNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.enableFlashSeriesCheckbox = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.flashSeriesDelayNumeric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.drop1DelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shutterDelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drop1DurationNumeric)).BeginInit();
@@ -61,9 +69,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.flashDurationNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flashDelayNumeric)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drop2DelayNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drop2DurationNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drop2DelayNumeric)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesOffsetNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesNumExecNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesDelayNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // drop1DelayNumeric
@@ -334,55 +346,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Plan";
             // 
-            // groupBox2
+            // label14
             // 
-            this.groupBox2.Controls.Add(this.serialMonitorBox);
-            this.groupBox2.Location = new System.Drawing.Point(18, 332);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(588, 275);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Serial Monitor";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 98);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 20);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Drop 2";
-            // 
-            // drop2DelayNumeric
-            // 
-            this.drop2DelayNumeric.Location = new System.Drawing.Point(90, 96);
-            this.drop2DelayNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.drop2DelayNumeric.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.drop2DelayNumeric.Name = "drop2DelayNumeric";
-            this.drop2DelayNumeric.Size = new System.Drawing.Size(180, 26);
-            this.drop2DelayNumeric.TabIndex = 21;
-            this.drop2DelayNumeric.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(284, 98);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(30, 20);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "ms";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(543, 98);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(30, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "ms";
             // 
             // drop2DurationNumeric
             // 
@@ -402,21 +374,156 @@
             0,
             0});
             // 
-            // label14
+            // label13
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(543, 98);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(30, 20);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "ms";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(284, 98);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 20);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "ms";
+            // 
+            // drop2DelayNumeric
+            // 
+            this.drop2DelayNumeric.Location = new System.Drawing.Point(90, 96);
+            this.drop2DelayNumeric.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.drop2DelayNumeric.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.drop2DelayNumeric.Name = "drop2DelayNumeric";
+            this.drop2DelayNumeric.Size = new System.Drawing.Size(180, 26);
+            this.drop2DelayNumeric.TabIndex = 21;
+            this.drop2DelayNumeric.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 98);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 20);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Drop 2";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.serialMonitorBox);
+            this.groupBox2.Location = new System.Drawing.Point(18, 332);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(588, 275);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Serial Monitor";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.flashSeriesDelayNumeric);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.enableFlashSeriesCheckbox);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.flashSeriesNumExecNumeric);
+            this.groupBox3.Controls.Add(this.flashSeriesOffsetNumeric);
+            this.groupBox3.Location = new System.Drawing.Point(614, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(237, 293);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Flash Series";
+            // 
+            // flashSeriesOffsetNumeric
+            // 
+            this.flashSeriesOffsetNumeric.Location = new System.Drawing.Point(97, 96);
+            this.flashSeriesOffsetNumeric.Name = "flashSeriesOffsetNumeric";
+            this.flashSeriesOffsetNumeric.Size = new System.Drawing.Size(120, 26);
+            this.flashSeriesOffsetNumeric.TabIndex = 0;
+            this.flashSeriesOffsetNumeric.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // flashSeriesNumExecNumeric
+            // 
+            this.flashSeriesNumExecNumeric.Location = new System.Drawing.Point(97, 132);
+            this.flashSeriesNumExecNumeric.Name = "flashSeriesNumExecNumeric";
+            this.flashSeriesNumExecNumeric.Size = new System.Drawing.Size(120, 26);
+            this.flashSeriesNumExecNumeric.TabIndex = 1;
+            this.flashSeriesNumExecNumeric.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 98);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 20);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Offset";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 134);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 20);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "# Exec";
+            // 
+            // enableFlashSeriesCheckbox
+            // 
+            this.enableFlashSeriesCheckbox.AutoSize = true;
+            this.enableFlashSeriesCheckbox.Location = new System.Drawing.Point(11, 63);
+            this.enableFlashSeriesCheckbox.Name = "enableFlashSeriesCheckbox";
+            this.enableFlashSeriesCheckbox.Size = new System.Drawing.Size(177, 24);
+            this.enableFlashSeriesCheckbox.TabIndex = 4;
+            this.enableFlashSeriesCheckbox.Text = "Enable Flash Series";
+            this.enableFlashSeriesCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(11, 170);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(49, 20);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Delay";
+            // 
+            // flashSeriesDelayNumeric
+            // 
+            this.flashSeriesDelayNumeric.Location = new System.Drawing.Point(97, 167);
+            this.flashSeriesDelayNumeric.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.flashSeriesDelayNumeric.Name = "flashSeriesDelayNumeric";
+            this.flashSeriesDelayNumeric.Size = new System.Drawing.Size(120, 26);
+            this.flashSeriesDelayNumeric.TabIndex = 6;
+            this.flashSeriesDelayNumeric.Value = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 621);
+            this.ClientSize = new System.Drawing.Size(866, 621);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -433,10 +540,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.flashDelayNumeric)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.drop2DurationNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drop2DelayNumeric)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drop2DelayNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drop2DurationNumeric)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesOffsetNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesNumExecNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flashSeriesDelayNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -469,5 +581,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown drop2DelayNumeric;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox enableFlashSeriesCheckbox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown flashSeriesNumExecNumeric;
+        private System.Windows.Forms.NumericUpDown flashSeriesOffsetNumeric;
+        private System.Windows.Forms.NumericUpDown flashSeriesDelayNumeric;
+        private System.Windows.Forms.Label label17;
     }
 }
